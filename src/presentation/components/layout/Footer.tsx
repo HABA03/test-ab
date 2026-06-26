@@ -32,6 +32,8 @@ const footerLinks = [
     title: 'Company',
     links: ['About Us', 'Contact Us', 'FAQ', 'Careers Form', 'Partner Form']
   }
+
+  
 ];
 
 export const Footer: React.FC = () => {
