@@ -78,44 +78,78 @@ export const Header: React.FC = () => {
         ))}
       </List>
 
-      {/* Language Switcher inside Mobile Drawer */}
-      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 1 }}>
+      {/* Language Switcher inside Mobile Drawer (Pill Sliding Toggle) */}
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          alignItems: 'center',
+          position: 'relative',
+          bgcolor: alpha(COLORS.light, 0.08),
+          borderRadius: '50px',
+          p: '3px',
+          border: `1px solid ${alpha(COLORS.light, 0.12)}`,
+          width: 100,
+          height: 38,
+          mb: 4,
+          userSelect: 'none'
+        }}
+      >
+        <Box 
+          sx={{
+            position: 'absolute',
+            top: 3,
+            bottom: 3,
+            left: language === 'en' ? 3 : 'calc(50% + 1px)',
+            width: 'calc(50% - 4px)',
+            borderRadius: '50px',
+            bgcolor: COLORS.primary,
+            boxShadow: `0 2px 8px ${alpha(COLORS.primary, 0.4)}`,
+            transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+            zIndex: 0
+          }}
+        />
         <Button 
-          variant={language === 'en' ? 'contained' : 'outlined'}
-          size="small"
           onClick={(e) => {
             e.stopPropagation();
             setLanguage('en');
           }}
+          disableRipple
           sx={{ 
-            minWidth: 45, 
-            borderColor: alpha(COLORS.light, 0.3),
+            flex: 1,
+            zIndex: 1,
             color: COLORS.light,
-            bgcolor: language === 'en' ? COLORS.primary : 'transparent',
-            fontWeight: 'bold',
-            '&:hover': {
-              bgcolor: language === 'en' ? alpha(COLORS.primary, 0.9) : alpha(COLORS.light, 0.1),
-            }
+            fontWeight: language === 'en' ? 700 : 500,
+            fontSize: '0.8rem',
+            minWidth: 0,
+            p: 0,
+            height: '100%',
+            borderRadius: '50px',
+            opacity: language === 'en' ? 1 : 0.6,
+            transition: 'opacity 0.2s',
+            '&:hover': { bgcolor: 'transparent', opacity: 1 }
           }}
         >
           EN
         </Button>
         <Button 
-          variant={language === 'es' ? 'contained' : 'outlined'}
-          size="small"
           onClick={(e) => {
             e.stopPropagation();
             setLanguage('es');
           }}
+          disableRipple
           sx={{ 
-            minWidth: 45, 
-            borderColor: alpha(COLORS.light, 0.3),
+            flex: 1,
+            zIndex: 1,
             color: COLORS.light,
-            bgcolor: language === 'es' ? COLORS.primary : 'transparent',
-            fontWeight: 'bold',
-            '&:hover': {
-              bgcolor: language === 'es' ? alpha(COLORS.primary, 0.9) : alpha(COLORS.light, 0.1),
-            }
+            fontWeight: language === 'es' ? 700 : 500,
+            fontSize: '0.8rem',
+            minWidth: 0,
+            p: 0,
+            height: '100%',
+            borderRadius: '50px',
+            opacity: language === 'es' ? 1 : 0.6,
+            transition: 'opacity 0.2s',
+            '&:hover': { bgcolor: 'transparent', opacity: 1 }
           }}
         >
           ES
@@ -199,33 +233,71 @@ export const Header: React.FC = () => {
           {/* Action Buttons, Language Switch & Hamburger */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
             
-            {/* Desktop Language Switch */}
-            <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+            {/* Desktop Language Switch (Pill Sliding Toggle) */}
+            <Box 
+              sx={{ 
+                display: { xs: 'none', sm: 'flex' }, 
+                alignItems: 'center',
+                position: 'relative',
+                bgcolor: alpha(COLORS.light, 0.08),
+                borderRadius: '50px',
+                p: '3px',
+                border: `1px solid ${alpha(COLORS.light, 0.12)}`,
+                width: 90,
+                height: 38,
+                userSelect: 'none'
+              }}
+            >
+              <Box 
+                sx={{
+                  position: 'absolute',
+                  top: 3,
+                  bottom: 3,
+                  left: language === 'en' ? 3 : 'calc(50% + 1px)',
+                  width: 'calc(50% - 4px)',
+                  borderRadius: '50px',
+                  bgcolor: COLORS.primary,
+                  boxShadow: `0 2px 8px ${alpha(COLORS.primary, 0.4)}`,
+                  transition: 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+                  zIndex: 0
+                }}
+              />
               <Button 
-                size="small"
                 onClick={() => setLanguage('en')}
+                disableRipple
                 sx={{ 
-                  color: language === 'en' ? COLORS.primary : alpha(COLORS.light, 0.5), 
-                  fontWeight: language === 'en' ? 800 : 500,
-                  minWidth: 30,
-                  px: 0.5,
-                  fontSize: '0.85rem',
-                  '&:hover': { bgcolor: 'transparent', color: COLORS.primary }
+                  flex: 1,
+                  zIndex: 1,
+                  color: COLORS.light,
+                  fontWeight: language === 'en' ? 700 : 500,
+                  fontSize: '0.8rem',
+                  minWidth: 0,
+                  p: 0,
+                  height: '100%',
+                  borderRadius: '50px',
+                  opacity: language === 'en' ? 1 : 0.6,
+                  transition: 'opacity 0.2s',
+                  '&:hover': { bgcolor: 'transparent', opacity: 1 }
                 }}
               >
                 EN
               </Button>
-              <Typography sx={{ color: alpha(COLORS.light, 0.25), mx: 0.2, fontSize: '0.8rem', userSelect: 'none' }}>|</Typography>
               <Button 
-                size="small"
                 onClick={() => setLanguage('es')}
+                disableRipple
                 sx={{ 
-                  color: language === 'es' ? COLORS.primary : alpha(COLORS.light, 0.5), 
-                  fontWeight: language === 'es' ? 800 : 500,
-                  minWidth: 30,
-                  px: 0.5,
-                  fontSize: '0.85rem',
-                  '&:hover': { bgcolor: 'transparent', color: COLORS.primary }
+                  flex: 1,
+                  zIndex: 1,
+                  color: COLORS.light,
+                  fontWeight: language === 'es' ? 700 : 500,
+                  fontSize: '0.8rem',
+                  minWidth: 0,
+                  p: 0,
+                  height: '100%',
+                  borderRadius: '50px',
+                  opacity: language === 'es' ? 1 : 0.6,
+                  transition: 'opacity 0.2s',
+                  '&:hover': { bgcolor: 'transparent', opacity: 1 }
                 }}
               >
                 ES
