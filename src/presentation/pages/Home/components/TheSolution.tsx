@@ -11,85 +11,309 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
-const solutions = [
-  { text: 'Payments and processing', icon: <PaymentIcon /> },
-  { text: 'Flexible processing programs', icon: <SettingsSuggestIcon /> },
-  { text: 'Flat Rate & Interchange Plus', icon: <PointOfSaleIcon /> },
-  { text: 'Merchant management', icon: <StorefrontIcon /> },
-  { text: 'Sales and partners', icon: <HandshakeIcon /> },
-  { text: 'Operations and support', icon: <SupportAgentIcon /> },
-  { text: 'Reporting and analytics', icon: <AnalyticsIcon /> },
-  { text: 'SaaS tools', icon: <CloudSyncIcon /> },
-];
-
 export const TheSolution: React.FC = () => {
   return (
-    <Box sx={{ py: 12, bgcolor: COLORS.dark, position: 'relative' }}>
-      {/* Decorative Glow */}
-      <Box 
-        sx={{
-          position: 'absolute',
-          top: '10%',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          width: '60vw',
-          height: '60vw',
-          background: `radial-gradient(circle, ${alpha(COLORS.primary, 0.15)} 0%, transparent 60%)`,
-          zIndex: 0,
-          pointerEvents: 'none'
-        }}
-      />
-      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
+    <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
+      <Container maxWidth="lg">
+        
         <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <Typography variant="h6" sx={{ color: COLORS.primary, mb: 1, fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 1.5 }}>
-              The Solution
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            viewport={{ once: true }} 
+            transition={{ duration: 0.5 }}
+          >
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                color: COLORS.primary, 
+                mb: 1.5, 
+                fontWeight: 'bold', 
+                textTransform: 'uppercase', 
+                letterSpacing: 1.5,
+                fontSize: '0.9rem'
+              }}
+            >
+              La Solución
             </Typography>
-            <Typography variant="h3" sx={{ mb: 2, color: COLORS.light }}>
-              Everything connected in one ecosystem.
+            <Typography 
+              variant="h2" 
+              sx={{ 
+                mb: 2.5, 
+                color: COLORS.dark, 
+                fontWeight: 850,
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                lineHeight: 1.2
+              }}
+            >
+              Todo conectado en un solo ecosistema
+            </Typography>
+            <Typography 
+              variant="body1" 
+              sx={{ 
+                color: alpha(COLORS.dark, 0.65), 
+                maxWidth: 700, 
+                mx: 'auto',
+                fontSize: { xs: '1.05rem', md: '1.15rem' } 
+              }}
+            >
+              Centraliza las operaciones financieras de tus comercios en una plataforma unificada y de alto rendimiento.
             </Typography>
           </motion.div>
         </Box>
 
-        <Grid container spacing={3}>
-          {solutions.map((solution, index) => (
-            <Grid size={{ xs: 12, sm: 6, md: 3 }}    key={index}>
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }} 
-                whileInView={{ opacity: 1, scale: 1 }} 
-                viewport={{ once: true }} 
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                style={{ height: '100%' }}
+        <Grid container spacing={3.5}>
+          
+          {/* Card 1 (Destacada con Imagen): Pagos y Procesamiento */}
+          <Grid size={{ xs: 12, md: 8 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5 }}
+              style={{ height: '100%' }}
+            >
+              <Card 
+                sx={{ 
+                  height: '100%', 
+                  display: 'flex', 
+                  flexDirection: { xs: 'column', sm: 'row' }, 
+                  overflow: 'hidden',
+                  borderColor: alpha(COLORS.primary, 0.15),
+                  boxShadow: '0 10px 30px rgba(70, 114, 255, 0.03)',
+                  borderRadius: 4,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.1)}`,
+                    borderColor: COLORS.primary
+                  }
+                }}
               >
-                <Card 
+                <CardContent sx={{ flex: 1.2, p: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08), width: 'fit-content' }}>
+                    <PaymentIcon sx={{ fontSize: 32 }} />
+                  </Box>
+                  <Typography variant="h5" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
+                    Pagos y Procesamiento Digital
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
+                    Acepta todo tipo de tarjetas y métodos de pago sin fricciones. Integración ágil con terminales inteligentes y pasarelas de pago robustas y seguras.
+                  </Typography>
+                </CardContent>
+                <Box 
                   sx={{ 
-                    height: '100%', 
-                    bgcolor: alpha(COLORS.secondary, 0.1),
-                    border: `1px solid ${alpha(COLORS.primary, 0.1)}`,
-                    transition: 'all 0.3s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    p: 2,
-                    '&:hover': {
-                      transform: 'translateY(-5px)',
-                      boxShadow: `0 8px 24px ${alpha(COLORS.primary, 0.2)}`,
-                      border: `1px solid ${alpha(COLORS.primary, 0.5)}`,
-                      bgcolor: alpha(COLORS.secondary, 0.2),
-                    }
-                  }}
-                >
-                  <CardContent>
-                    <Box sx={{ color: COLORS.primary, mb: 2, '& > svg': { fontSize: 36 } }}>
-                      {solution.icon}
-                    </Box>
-                    <Typography variant="body1" sx={{ color: COLORS.light, fontWeight: 500, lineHeight: 1.4 }}>
-                      {solution.text}
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            </Grid>
-          ))}
+                    flex: 1, 
+                    minHeight: { xs: 200, sm: 'auto' }, 
+                    backgroundImage: 'url(/contactless_payment.png)', 
+                    backgroundSize: 'cover', 
+                    backgroundPosition: 'center' 
+                  }} 
+                />
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 2: Programas Flexibles */}
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <SettingsSuggestIcon sx={{ fontSize: 28 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
+                    Programas Flexibles
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
+                    Estructuras de comisiones adaptables según los requerimientos de tu portafolio y tu estrategia comercial.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 3: Flat Rate & Interchange Plus */}
+          <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.2 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <PointOfSaleIcon sx={{ fontSize: 28 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
+                    Esquemas de Precios
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
+                    Alterna de manera nativa entre esquemas de Tarifa Plana (Flat Rate) e Interchange Plus para maximizar márgenes.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 4 (Destacada con Imagen): Gestión de Comercios */}
+          <Grid size={{ xs: 12, md: 8 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.3 }}
+              style={{ height: '100%' }}
+            >
+              <Card 
+                sx={{ 
+                  height: '100%', 
+                  display: 'flex', 
+                  flexDirection: { xs: 'column', sm: 'row-reverse' }, 
+                  overflow: 'hidden',
+                  borderColor: alpha(COLORS.primary, 0.15),
+                  boxShadow: '0 10px 30px rgba(70, 114, 255, 0.03)',
+                  borderRadius: 4,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'translateY(-5px)',
+                    boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.1)}`,
+                    borderColor: COLORS.primary
+                  }
+                }}
+              >
+                <CardContent sx={{ flex: 1.2, p: 4, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08), width: 'fit-content' }}>
+                    <StorefrontIcon sx={{ fontSize: 32 }} />
+                  </Box>
+                  <Typography variant="h5" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
+                    Gestión Integral de Comercios
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
+                    Control de altas de comercios, configuración de terminales y soporte administrativo simplificado dentro de un entorno unificado.
+                  </Typography>
+                </CardContent>
+                <Box 
+                  sx={{ 
+                    flex: 1, 
+                    minHeight: { xs: 200, sm: 'auto' }, 
+                    backgroundImage: 'url(/restaurant_pos.png)', 
+                    backgroundSize: 'cover', 
+                    backgroundPosition: 'center' 
+                  }} 
+                />
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 5: Socios Comerciales */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.4 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <HandshakeIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
+                    Fuerza de Ventas
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
+                    Control de agentes comerciales, comisiones devengadas y herramientas de captación dedicadas.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 6: Soporte Técnico */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.5 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <SupportAgentIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
+                    Soporte y Operación
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
+                    Herramientas ágiles de asistencia técnica y administración para mantener tu red activa y satisfecha.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 7: Reportes Financieros */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.6 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <AnalyticsIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
+                    Métricas y Reportes
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
+                    Auditorías, volúmenes de transacciones y conciliaciones de depósitos detallados.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
+          {/* Card 8: Herramientas SaaS */}
+          <Grid size={{ xs: 12, sm: 6, md: 3 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.7 }}
+              style={{ height: '100%' }}
+            >
+              <Card sx={{ height: '100%', p: 3, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', borderRadius: 4, '&:hover': { transform: 'translateY(-5px)', borderColor: COLORS.primary, boxShadow: `0 15px 35px ${alpha(COLORS.primary, 0.08)}` } }}>
+                <CardContent sx={{ p: 0 }}>
+                  <Box sx={{ color: COLORS.primary, mb: 2.5, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.primary, 0.08) }}>
+                    <CloudSyncIcon sx={{ fontSize: 24 }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
+                    Herramientas SaaS
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
+                    Sincronización en la nube y utilidades administrativas dedicadas para escalar sin límites.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </Grid>
+
         </Grid>
       </Container>
     </Box>

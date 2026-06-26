@@ -2,50 +2,107 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
-import HubIcon from '@mui/icons-material/Hub';
 
 export const WhatIsABPOS: React.FC = () => {
   return (
-    <Box sx={{ py: 12, bgcolor: COLORS.dark }}>
+    <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
         <Grid container spacing={6} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, md: 6 }}  >
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <Typography variant="h6" sx={{ color: COLORS.accent, mb: 1, fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 1.5 }}>
-                Ecosystem
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }}
+            >
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  color: COLORS.primary, 
+                  mb: 1.5, 
+                  fontWeight: 'bold', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: 1.5,
+                  fontSize: '0.9rem'
+                }}
+              >
+                Ecosistema Integrado
               </Typography>
-              <Typography variant="h2" sx={{ mb: 4, color: COLORS.light }}>
-                What is AB POS?
+              <Typography 
+                variant="h2" 
+                sx={{ 
+                  mb: 3.5, 
+                  color: COLORS.dark, 
+                  fontWeight: 850,
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                  lineHeight: 1.2
+                }}
+              >
+                ¿Qué es AB POS?
               </Typography>
-              <Typography variant="h5" sx={{ color: alpha(COLORS.light, 0.7), lineHeight: 1.6, fontWeight: 400 }}>
-                AB POS is an ecosystem that helps manage merchants, payments, sales, operations, and reporting from one centralized platform.
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: alpha(COLORS.dark, 0.75), 
+                  lineHeight: 1.7, 
+                  fontWeight: 400,
+                  fontSize: { xs: '1.05rem', md: '1.15rem' },
+                  mb: 3
+                }}
+              >
+                AB POS es un ecosistema integral y unificado diseñado para centralizar y simplificar la gestión de tu red comercial. Te permite administrar comercios, procesar pagos, controlar ventas, supervisar operaciones y obtener reportes avanzados, todo desde un único punto de control.
+              </Typography>
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: alpha(COLORS.dark, 0.75), 
+                  lineHeight: 1.7, 
+                  fontWeight: 400,
+                  fontSize: { xs: '1.05rem', md: '1.15rem' }
+                }}
+              >
+                Olvídate de la fragmentación operativa. Nuestra plataforma consolida cada interacción del negocio para brindarte visibilidad absoluta y optimizar la toma de decisiones críticas en tiempo real.
               </Typography>
             </motion.div>
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}  >
-            <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
-              {/* Image Placeholder */}
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <Box 
                 sx={{ 
-                  height: 400, 
                   borderRadius: 4, 
-                  border: `2px dashed ${alpha(COLORS.accent, 0.3)}`,
+                  overflow: 'hidden',
+                  boxShadow: '0 20px 40px rgba(8, 10, 59, 0.08)',
+                  border: `1px solid ${alpha(COLORS.dark, 0.06)}`,
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column',
-                  background: `radial-gradient(circle at center, ${alpha(COLORS.primary, 0.1)} 0%, transparent 70%)`,
-                  position: 'relative',
-                  overflow: 'hidden'
+                  bgcolor: '#FFFFFF',
+                  position: 'relative'
                 }}
               >
-                <HubIcon sx={{ fontSize: 80, color: alpha(COLORS.accent, 0.5), mb: 2 }} />
-                <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.5) }}>
-                  [ Centralized Dashboard Image Placeholder ]
-                </Typography>
+                <Box 
+                  component="img" 
+                  src="/dashboard.png" 
+                  alt="Ecosistema de Panel Centralizado AB POS" 
+                  sx={{ 
+                    width: '100%', 
+                    height: 'auto', 
+                    objectFit: 'cover',
+                    transition: 'transform 0.5s ease',
+                    '&:hover': {
+                      transform: 'scale(1.02)'
+                    }
+                  }} 
+                />
               </Box>
             </motion.div>
           </Grid>
+
         </Grid>
       </Container>
     </Box>

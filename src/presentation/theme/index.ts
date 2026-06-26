@@ -34,7 +34,7 @@ export const COLORS = {
  */
 const theme = createTheme({
   palette: {
-    mode: 'dark', // Fintech futurista se beneficia enormemente del modo oscuro
+    mode: 'light', // Pasamos a modo claro para alternar secciones con fondos blancos de forma accesible
     primary: {
       main: COLORS.primary,
     },
@@ -46,12 +46,12 @@ const theme = createTheme({
       contrastText: '#fff',
     },
     background: {
-      default: COLORS.dark, // Usamos el dark de base para todo
-      paper: alpha(COLORS.dark, 0.8), // Efecto glass/cards
+      default: '#F8F9FC', // Fondo claro
+      paper: '#FFFFFF', // Fondo de tarjetas
     },
     text: {
-      primary: COLORS.light,
-      secondary: alpha(COLORS.light, 0.7),
+      primary: COLORS.dark, // Texto oscuro corporativo
+      secondary: alpha(COLORS.dark, 0.7),
     },
   },
   typography: {
@@ -85,8 +85,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body: {
-          backgroundColor: COLORS.dark,
-          color: COLORS.light,
+          backgroundColor: '#F8F9FC',
+          color: COLORS.dark,
           // Evitamos el scroll horizontal si hay elementos muy anchos
           overflowX: 'hidden', 
         },
@@ -121,10 +121,11 @@ const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          background: alpha(COLORS.secondary, 0.1),
-          backdropFilter: 'blur(10px)',
-          border: `1px solid ${alpha(COLORS.light, 0.1)}`,
+          backgroundColor: '#FFFFFF',
+          border: `1px solid ${alpha(COLORS.dark, 0.08)}`,
           borderRadius: 16,
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
+          transition: 'all 0.3s ease',
         },
       },
     },

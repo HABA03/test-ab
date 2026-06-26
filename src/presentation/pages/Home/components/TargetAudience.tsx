@@ -5,38 +5,74 @@ import { COLORS } from '../../../theme';
 import PeopleIcon from '@mui/icons-material/People';
 import BusinessIcon from '@mui/icons-material/Business';
 
-const audience = ['Financial solutions distributors', 'ISOs', 'Commercial partners', 'Agents', 'Operations teams', 'Merchant networks'];
-const industries = ['Restaurants and food service', 'Retail stores', 'Convenience stores', 'Grocery markets', 'Professional services', 'Beauty and wellness', 'Hospitality', 'Mobile businesses', 'Multi-location businesses', 'Small and medium-sized businesses'];
+const audience = [
+  'Distribuidores de soluciones financieras', 
+  'Organizaciones de Ventas Independientes (ISOs)', 
+  'Socios comerciales B2B', 
+  'Agentes y promotores', 
+  'Equipos de operaciones', 
+  'Redes y cadenas de comercios'
+];
+
+const industries = [
+  'Restaurantes y gastronomía', 
+  'Comercio minorista (Retail)', 
+  'Tiendas de conveniencia', 
+  'Supermercados y abarrotes', 
+  'Servicios profesionales', 
+  'Estética y bienestar', 
+  'Hotelería y turismo', 
+  'Negocios móviles y eventos', 
+  'Cadenas y franquicias', 
+  'Pymes en crecimiento'
+];
 
 export const TargetAudience: React.FC = () => {
   return (
-    <Box sx={{ py: 12, bgcolor: COLORS.dark }}>
+    <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
-        <Grid container spacing={8}>
+        <Grid container spacing={{ xs: 6, md: 8 }} sx={{ alignItems: 'stretch' }}>
           
           {/* Who It's For */}
-          <Grid size={{ xs: 12, md: 5 }}  >
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+          <Grid size={{ xs: 12, md: 5.5 }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5 }}
+              style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            >
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 2 }}>
                 <PeopleIcon sx={{ color: COLORS.primary, fontSize: 40 }} />
-                <Typography variant="h3" sx={{ color: COLORS.light }}>Who It's For</Typography>
+                <Typography variant="h3" sx={{ color: COLORS.dark, fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.2rem' } }}>
+                  ¿Para quién es?
+                </Typography>
               </Box>
-              <Typography variant="body1" sx={{ color: alpha(COLORS.light, 0.7), mb: 4, fontSize: '1.1rem' }}>
-                AB POS is designed for modern teams scaling their financial operations:
+              <Typography variant="body1" sx={{ color: alpha(COLORS.dark, 0.7), mb: 4, fontSize: '1.05rem', lineHeight: 1.6 }}>
+                AB POS está diseñado para equipos dinámicos y en crecimiento que buscan centralizar y escalar la administración de sus operaciones financieras:
               </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+              
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mt: 'auto' }}>
                 {audience.map((item) => (
-                  <motion.div key={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <motion.div key={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Chip 
                       label={item} 
                       sx={{ 
-                        bgcolor: alpha(COLORS.primary, 0.1), 
-                        color: COLORS.light,
-                        border: `1px solid ${alpha(COLORS.primary, 0.3)}`,
-                        fontSize: '0.95rem',
-                        py: 2.5,
+                        bgcolor: alpha(COLORS.primary, 0.08), 
+                        color: COLORS.primary,
+                        border: `1px solid ${alpha(COLORS.primary, 0.25)}`,
+                        fontSize: '0.9rem',
+                        fontWeight: 600,
+                        py: 2.2,
                         px: 1,
-                        borderRadius: '12px'
+                        borderRadius: '12px',
+                        cursor: 'default',
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          bgcolor: COLORS.primary,
+                          color: '#FFFFFF',
+                          borderColor: COLORS.primary
+                        }
                       }} 
                     />
                   </motion.div>
@@ -46,33 +82,50 @@ export const TargetAudience: React.FC = () => {
           </Grid>
 
           {/* Spacer */}
-          <Grid size={{ xs: 12, md: 1 }}   sx={{ display: { xs: 'none', md: 'block' } }}>
-            <Box sx={{ height: '100%', width: '1px', bgcolor: alpha(COLORS.light, 0.1), mx: 'auto' }} />
+          <Grid size={{ xs: 12, md: 1 }} sx={{ display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center' }}>
+            <Box sx={{ height: '80%', width: '1px', bgcolor: alpha(COLORS.dark, 0.08) }} />
           </Grid>
 
           {/* Industries We Help */}
-          <Grid size={{ xs: 12, md: 6 }}  >
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}>
+          <Grid size={{ xs: 12, md: 5.5 }}>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.5, delay: 0.2 }}
+              style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+            >
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 2 }}>
-                <BusinessIcon sx={{ color: COLORS.accent, fontSize: 40 }} />
-                <Typography variant="h3" sx={{ color: COLORS.light }}>Industries We Help</Typography>
+                <BusinessIcon sx={{ color: COLORS.secondary, fontSize: 40 }} />
+                <Typography variant="h3" sx={{ color: COLORS.dark, fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.2rem' } }}>
+                  Sectores que Apoyamos
+                </Typography>
               </Box>
-              <Typography variant="body1" sx={{ color: alpha(COLORS.light, 0.7), mb: 4, fontSize: '1.1rem' }}>
-                Supporting distributors and merchant networks serving diverse sectors:
+              <Typography variant="body1" sx={{ color: alpha(COLORS.dark, 0.7), mb: 4, fontSize: '1.05rem', lineHeight: 1.6 }}>
+                Ofrecemos una infraestructura tecnológica robusta para distribuidores y redes comerciales que brindan servicios a diversos sectores de mercado:
               </Typography>
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+              
+              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mt: 'auto' }}>
                 {industries.map((item) => (
-                  <motion.div key={item} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <motion.div key={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Chip 
                       label={item} 
                       sx={{ 
-                        bgcolor: alpha(COLORS.accent, 0.1), 
-                        color: COLORS.light,
-                        border: `1px solid ${alpha(COLORS.accent, 0.3)}`,
-                        fontSize: '0.95rem',
-                        py: 2.5,
+                        bgcolor: alpha(COLORS.secondary, 0.08), 
+                        color: COLORS.secondary,
+                        border: `1px solid ${alpha(COLORS.secondary, 0.25)}`,
+                        fontSize: '0.9rem',
+                        fontWeight: 600,
+                        py: 2.2,
                         px: 1,
-                        borderRadius: '12px'
+                        borderRadius: '12px',
+                        cursor: 'default',
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          bgcolor: COLORS.secondary,
+                          color: '#FFFFFF',
+                          borderColor: COLORS.secondary
+                        }
                       }} 
                     />
                   </motion.div>

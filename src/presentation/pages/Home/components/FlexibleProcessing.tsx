@@ -6,65 +6,169 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
 export const FlexibleProcessing: React.FC = () => {
   return (
-    <Box sx={{ py: 12, bgcolor: alpha(COLORS.dark, 0.98), overflow: 'hidden' }}>
-      <Container maxWidth="lg">
+    <Box sx={{ py: { xs: 10, md: 14 }, background: COLORS.gradient, overflow: 'hidden', position: 'relative' }}>
+      {/* Decorative Glows */}
+      <Box 
+        sx={{
+          position: 'absolute',
+          top: '-10%',
+          right: '-10%',
+          width: '50vw',
+          height: '50vw',
+          background: `radial-gradient(circle, ${alpha(COLORS.accent, 0.2)} 0%, transparent 70%)`,
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Grid container spacing={8} sx={{ alignItems: "center" }}>
-          <Grid size={{ xs: 12, md: 6 }}  >
-            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <Typography variant="h6" sx={{ color: COLORS.accent, mb: 1, fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: 1.5 }}>
-                Programs
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <motion.div 
+              initial={{ opacity: 0, x: -40 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }}
+            >
+              <Typography 
+                variant="h6" 
+                sx={{ 
+                  color: COLORS.accent, 
+                  mb: 1.5, 
+                  fontWeight: 'bold', 
+                  textTransform: 'uppercase', 
+                  letterSpacing: 1.5,
+                  fontSize: '0.9rem'
+                }}
+              >
+                Esquemas Comerciales
               </Typography>
-              <Typography variant="h3" sx={{ mb: 4, color: COLORS.light }}>
-                Flexible Processing Programs
+              <Typography 
+                variant="h2" 
+                sx={{ 
+                  mb: 3.5, 
+                  color: COLORS.light,
+                  fontWeight: 850,
+                  fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
+                  lineHeight: 1.2
+                }}
+              >
+                Programas de Procesamiento Flexibles
               </Typography>
-              <Typography variant="body1" sx={{ color: alpha(COLORS.light, 0.7), mb: 3, fontSize: '1.1rem', lineHeight: 1.7 }}>
-                AB POS supports different processing programs, including <strong>Flat Rate</strong> and <strong>Interchange Plus</strong>, so each partner can choose the model that best adapts to their business strategy, merchant portfolio, margins, and growth goals.
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: alpha(COLORS.light, 0.8), 
+                  mb: 3, 
+                  fontSize: { xs: '1.05rem', md: '1.15rem' }, 
+                  lineHeight: 1.7 
+                }}
+              >
+                AB POS es compatible con múltiples programas de procesamiento, destacando **Tarifa Plana (Flat Rate)** e **Interchange Plus**. Cada distribuidor puede estructurar el modelo que mejor responda a las necesidades de sus comercios, sus márgenes operativos y su ritmo de crecimiento.
               </Typography>
-              <Typography variant="body1" sx={{ color: alpha(COLORS.light, 0.7), mb: 5, fontSize: '1.1rem', lineHeight: 1.7 }}>
-                This flexibility is vital because every partner operates differently. AB POS gives partners the ability to select the pricing structure that works best for them instead of forcing a single model.
+              <Typography 
+                variant="body1" 
+                sx={{ 
+                  color: alpha(COLORS.light, 0.8), 
+                  mb: 5, 
+                  fontSize: { xs: '1.05rem', md: '1.15rem' }, 
+                  lineHeight: 1.7 
+                }}
+              >
+                Entendemos que cada portafolio es único. Por ello, en lugar de imponer un único sistema de cobro rígido, AB POS proporciona a los socios comerciales absoluta libertad para seleccionar el esquema de precios que mejor se ajuste a su modelo de negocio.
               </Typography>
               
-              <Box sx={{ p: 3, borderLeft: `4px solid ${COLORS.primary}`, bgcolor: alpha(COLORS.primary, 0.05), borderRadius: '0 8px 8px 0' }}>
-                <Typography variant="h6" sx={{ color: COLORS.primary, fontStyle: 'italic' }}>
-                  "Your partnership. Your pricing strategy. One connected platform."
+              <Box 
+                sx={{ 
+                  p: 3, 
+                  borderLeft: `4px solid ${COLORS.accent}`, 
+                  bgcolor: alpha(COLORS.accent, 0.08), 
+                  borderRadius: '0 8px 8px 0',
+                  backdropFilter: 'blur(10px)'
+                }}
+              >
+                <Typography variant="h6" sx={{ color: COLORS.accent, fontStyle: 'italic', fontWeight: 500, fontSize: '1.05rem' }}>
+                  "Tu alianza. Tu estrategia de precios. Una sola plataforma conectada."
                 </Typography>
               </Box>
             </motion.div>
           </Grid>
-          <Grid size={{ xs: 12, md: 6 }}  >
-            <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}>
+          
+          <Grid size={{ xs: 12, md: 6 }}>
+            <motion.div 
+              initial={{ opacity: 0, x: 40 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
               <Paper 
                 elevation={0}
                 sx={{ 
-                  p: 4, 
-                  bgcolor: alpha(COLORS.secondary, 0.1), 
-                  border: `1px solid ${alpha(COLORS.accent, 0.2)}`,
-                  borderRadius: 4,
-                  position: 'relative'
+                  p: 4.5, 
+                  bgcolor: alpha(COLORS.light, 0.03), 
+                  border: `1px solid ${alpha(COLORS.light, 0.1)}`,
+                  borderRadius: 5,
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 30px 60px rgba(0,0,0,0.2)'
                 }}
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 4, gap: 2 }}>
                   <AccountTreeIcon sx={{ color: COLORS.accent, fontSize: 32 }} />
-                  <Typography variant="h5" sx={{ color: COLORS.light }}>Pricing Models</Typography>
+                  <Typography variant="h5" sx={{ color: COLORS.light, fontWeight: 700 }}>Modelos de Tarifas</Typography>
                 </Box>
                 
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-                  <Box sx={{ p: 3, bgcolor: alpha(COLORS.dark, 0.5), borderRadius: 2, border: `1px solid ${alpha(COLORS.light, 0.1)}` }}>
-                    <Typography variant="h6" sx={{ color: COLORS.light, mb: 1 }}>Flat Rate</Typography>
-                    <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.6) }}>
-                      Simple, predictable pricing. Ideal for businesses looking for consistency and straightforward statements.
+                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
+                  
+                  <Box 
+                    sx={{ 
+                      p: 3, 
+                      bgcolor: alpha(COLORS.dark, 0.4), 
+                      borderRadius: 3, 
+                      border: `1px solid ${alpha(COLORS.light, 0.08)}`,
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        borderColor: COLORS.accent,
+                        boxShadow: `0 8px 24px ${alpha(COLORS.accent, 0.15)}`,
+                        transform: 'translateY(-2px)'
+                      }
+                    }}
+                  >
+                    <Typography variant="h6" sx={{ color: COLORS.light, mb: 1, fontWeight: 700 }}>
+                      Tarifa Plana (Flat Rate)
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.65), lineHeight: 1.6 }}>
+                      Precios sencillos y predecibles por transacción. Es ideal para comercios pequeños o medianos que valoran la consistencia y reportes de facturación rápidos y fáciles de comprender.
                     </Typography>
                   </Box>
-                  <Box sx={{ p: 3, bgcolor: alpha(COLORS.dark, 0.5), borderRadius: 2, border: `1px solid ${alpha(COLORS.light, 0.1)}` }}>
-                    <Typography variant="h6" sx={{ color: COLORS.light, mb: 1 }}>Interchange Plus</Typography>
-                    <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.6) }}>
-                      Transparent, wholesale pricing plus a markup. Perfect for high-volume merchants seeking cost optimization.
+                  
+                  <Box 
+                    sx={{ 
+                      p: 3, 
+                      bgcolor: alpha(COLORS.dark, 0.4), 
+                      borderRadius: 3, 
+                      border: `1px solid ${alpha(COLORS.light, 0.08)}`,
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        borderColor: COLORS.primary,
+                        boxShadow: `0 8px 24px ${alpha(COLORS.primary, 0.15)}`,
+                        transform: 'translateY(-2px)'
+                      }
+                    }}
+                  >
+                    <Typography variant="h6" sx={{ color: COLORS.light, mb: 1, fontWeight: 700 }}>
+                      Interchange Plus
+                    </Typography>
+                    <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.65), lineHeight: 1.6 }}>
+                      Precios basados en el costo directo de las marcas de tarjetas más un margen establecido. Excelente para comercios de alto volumen que buscan transparencia absoluta y optimización de costos.
                     </Typography>
                   </Box>
+
                 </Box>
               </Paper>
             </motion.div>
           </Grid>
+
         </Grid>
       </Container>
     </Box>
