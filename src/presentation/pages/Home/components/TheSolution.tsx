@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid, Card, CardContent } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 import PaymentIcon from '@mui/icons-material/Payment';
 import SettingsSuggestIcon from '@mui/icons-material/SettingsSuggest';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -12,6 +13,8 @@ import CloudSyncIcon from '@mui/icons-material/CloudSync';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 
 export const TheSolution: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
@@ -34,7 +37,7 @@ export const TheSolution: React.FC = () => {
                 fontSize: '0.9rem'
               }}
             >
-              La Solución
+              {t.solution.badge}
             </Typography>
             <Typography 
               variant="h2" 
@@ -46,7 +49,7 @@ export const TheSolution: React.FC = () => {
                 lineHeight: 1.2
               }}
             >
-              Todo conectado en un solo ecosistema
+              {t.solution.title}
             </Typography>
             <Typography 
               variant="body1" 
@@ -57,7 +60,7 @@ export const TheSolution: React.FC = () => {
                 fontSize: { xs: '1.05rem', md: '1.15rem' } 
               }}
             >
-              Centraliza las operaciones financieras de tus comercios en una plataforma unificada y de alto rendimiento.
+              {t.solution.desc}
             </Typography>
           </motion.div>
         </Box>
@@ -95,10 +98,10 @@ export const TheSolution: React.FC = () => {
                     <PaymentIcon sx={{ fontSize: 32 }} />
                   </Box>
                   <Typography variant="h5" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
-                    Pagos y Procesamiento Digital
+                    {t.solution.card1Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
-                    Acepta todo tipo de tarjetas y métodos de pago sin fricciones. Integración ágil con terminales inteligentes y pasarelas de pago robustas y seguras.
+                    {t.solution.card1Desc}
                   </Typography>
                 </CardContent>
                 <Box 
@@ -129,10 +132,10 @@ export const TheSolution: React.FC = () => {
                     <SettingsSuggestIcon sx={{ fontSize: 28 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
-                    Programas Flexibles
+                    {t.solution.card2Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
-                    Estructuras de comisiones adaptables según los requerimientos de tu portafolio y tu estrategia comercial.
+                    {t.solution.card2Desc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -154,10 +157,10 @@ export const TheSolution: React.FC = () => {
                     <PointOfSaleIcon sx={{ fontSize: 28 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
-                    Esquemas de Precios
+                    {t.solution.card3Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
-                    Alterna de manera nativa entre esquemas de Tarifa Plana (Flat Rate) e Interchange Plus para maximizar márgenes.
+                    {t.solution.card3Desc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -195,10 +198,10 @@ export const TheSolution: React.FC = () => {
                     <StorefrontIcon sx={{ fontSize: 32 }} />
                   </Box>
                   <Typography variant="h5" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
-                    Gestión Integral de Comercios
+                    {t.solution.card4Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
-                    Control de altas de comercios, configuración de terminales y soporte administrativo simplificado dentro de un entorno unificado.
+                    {t.solution.card4Desc}
                   </Typography>
                 </CardContent>
                 <Box 
@@ -229,10 +232,10 @@ export const TheSolution: React.FC = () => {
                     <HandshakeIcon sx={{ fontSize: 24 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
-                    Fuerza de Ventas
+                    {t.solution.card5Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
-                    Control de agentes comerciales, comisiones devengadas y herramientas de captación dedicadas.
+                    {t.solution.card5Desc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -254,10 +257,10 @@ export const TheSolution: React.FC = () => {
                     <SupportAgentIcon sx={{ fontSize: 24 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
-                    Soporte y Operación
+                    {t.solution.card6Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
-                    Herramientas ágiles de asistencia técnica y administración para mantener tu red activa y satisfecha.
+                    {t.solution.card6Desc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -279,10 +282,10 @@ export const TheSolution: React.FC = () => {
                     <AnalyticsIcon sx={{ fontSize: 24 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
-                    Métricas y Reportes
+                    {t.solution.card7Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
-                    Auditorías, volúmenes de transacciones y conciliaciones de depósitos detallados.
+                    {t.solution.card7Desc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -304,10 +307,10 @@ export const TheSolution: React.FC = () => {
                     <CloudSyncIcon sx={{ fontSize: 24 }} />
                   </Box>
                   <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
-                    Herramientas SaaS
+                    {t.solution.card8Title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.5, fontSize: '0.85rem' }}>
-                    Sincronización en la nube y utilidades administrativas dedicadas para escalar sin límites.
+                    {t.solution.card8Desc}
                   </Typography>
                 </CardContent>
               </Card>

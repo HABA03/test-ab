@@ -2,8 +2,11 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 
 export const FinalCTA: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 12, md: 16 }, position: 'relative', overflow: 'hidden' }}>
       {/* Background Gradient */}
@@ -49,7 +52,7 @@ export const FinalCTA: React.FC = () => {
               textShadow: `0 4px 20px ${alpha(COLORS.dark, 0.4)}`
             }}
           >
-            Conecta y simplifica tu operación financiera en una sola plataforma
+            {t.cta.title}
           </Typography>
 
           <Box 
@@ -80,7 +83,7 @@ export const FinalCTA: React.FC = () => {
                 }
               }}
             >
-              Solicitar una Demo
+              {t.cta.demo}
             </Button>
             <Button 
               variant="outlined" 
@@ -100,7 +103,7 @@ export const FinalCTA: React.FC = () => {
                 }
               }}
             >
-              Hablar con Ventas
+              {t.cta.sales}
             </Button>
           </Box>
         </motion.div>

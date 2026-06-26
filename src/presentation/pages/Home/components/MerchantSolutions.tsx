@@ -2,24 +2,27 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid, Card, CardContent } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import ContactlessIcon from '@mui/icons-material/Contactless';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import KitchenIcon from '@mui/icons-material/Kitchen';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
 import LinkIcon from '@mui/icons-material/Link';
-
-const rightSolutions = [
-  { text: 'Pagos Digitales', desc: 'Acepta tarjetas sin contacto, Apple Pay y billeteras digitales.', icon: <ContactlessIcon /> },
-  { text: 'Reportes en Vivo', desc: 'Supervisa ventas, facturación y turnos en tiempo real.', icon: <BarChartIcon /> },
-  { text: 'Pantallas de Cocina (KDS)', desc: 'Optimiza la comunicación entre meseros y cocina al instante.', icon: <KitchenIcon /> },
-  { text: 'Pantalla para el Cliente', desc: 'Transparencia total en el checkout para fidelizar clientes.', icon: <DisplaySettingsIcon /> },
-  { text: 'Enlaces de Pago', desc: 'Crea y comparte links de cobro seguros por chat o correo.', icon: <LinkIcon /> },
-  { text: 'Gestión Minorista', desc: 'Control de inventario, stock y proveedores simplificado.', icon: <ShoppingBagIcon /> },
-];
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 export const MerchantSolutions: React.FC = () => {
+  const { t } = useLanguage();
+
+  const icons = [
+    <ContactlessIcon key={0} />,
+    <BarChartIcon key={1} />,
+    <KitchenIcon key={2} />,
+    <DisplaySettingsIcon key={3} />,
+    <LinkIcon key={4} />,
+    <ShoppingBagIcon key={5} />
+  ];
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
@@ -42,7 +45,7 @@ export const MerchantSolutions: React.FC = () => {
                 fontSize: '0.9rem'
               }}
             >
-              Tecnología Comercial
+              {t.merchant.badge}
             </Typography>
             <Typography 
               variant="h2" 
@@ -54,7 +57,7 @@ export const MerchantSolutions: React.FC = () => {
                 lineHeight: 1.2
               }}
             >
-              Soluciones para Comercios
+              {t.merchant.title}
             </Typography>
             <Typography 
               variant="body1" 
@@ -65,7 +68,7 @@ export const MerchantSolutions: React.FC = () => {
                 fontSize: { xs: '1.05rem', md: '1.15rem' } 
               }}
             >
-              Herramientas avanzadas que permiten a los comercios de tu red operar de manera más eficiente y vender más.
+              {t.merchant.desc}
             </Typography>
           </motion.div>
         </Box>
@@ -111,10 +114,10 @@ export const MerchantSolutions: React.FC = () => {
                     <RestaurantIcon sx={{ fontSize: 28 }} />
                   </Box>
                   <Typography variant="h5" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1.5 }}>
-                    Puntos de Venta para Restaurantes y Retail
+                    {t.merchant.leftTitle}
                   </Typography>
                   <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.65), lineHeight: 1.6 }}>
-                    Software de cobro especializado y terminales inteligentes diseñados para optimizar la velocidad del servicio, mapas de mesas, envío de comandas, propinas y administración de inventarios en tiendas minoristas.
+                    {t.merchant.leftDesc}
                   </Typography>
                 </CardContent>
               </Card>
@@ -124,7 +127,7 @@ export const MerchantSolutions: React.FC = () => {
           {/* Cuadrícula de Tarjetas en la Derecha */}
           <Grid size={{ xs: 12, lg: 6 }}>
             <Grid container spacing={3} sx={{ height: '100%' }}>
-              {rightSolutions.map((solution, index) => (
+              {t.merchant.rightCards.map((solution: { title: string; desc: string }, index: number) => (
                 <Grid size={{ xs: 12, sm: 6 }} key={index} sx={{ display: 'flex' }}>
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.95 }} 
@@ -153,10 +156,10 @@ export const MerchantSolutions: React.FC = () => {
                     >
                       <CardContent sx={{ p: 0, display: 'flex', flexDirection: 'column', height: '100%' }}>
                         <Box sx={{ color: COLORS.accent, mb: 2, display: 'inline-flex', p: 1, borderRadius: 2, bgcolor: alpha(COLORS.accent, 0.08), width: 'fit-content', '& > svg': { fontSize: 24 } }}>
-                          {solution.icon}
+                          {icons[index]}
                         </Box>
                         <Typography variant="h6" sx={{ color: COLORS.dark, fontWeight: 700, mb: 1, fontSize: '1.05rem' }}>
-                          {solution.text}
+                          {solution.title}
                         </Typography>
                         <Typography variant="body2" sx={{ color: alpha(COLORS.dark, 0.6), lineHeight: 1.5, fontSize: '0.85rem' }}>
                           {solution.desc}

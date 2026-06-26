@@ -2,8 +2,11 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 
 export const WhatIsABPOS: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
@@ -27,7 +30,7 @@ export const WhatIsABPOS: React.FC = () => {
                   fontSize: '0.9rem'
                 }}
               >
-                Ecosistema Integrado
+                {t.whatIs.badge}
               </Typography>
               <Typography 
                 variant="h2" 
@@ -39,7 +42,7 @@ export const WhatIsABPOS: React.FC = () => {
                   lineHeight: 1.2
                 }}
               >
-                ¿Qué es AB POS?
+                {t.whatIs.title}
               </Typography>
               <Typography 
                 variant="body1" 
@@ -51,7 +54,7 @@ export const WhatIsABPOS: React.FC = () => {
                   mb: 3
                 }}
               >
-                AB POS es un ecosistema integral y unificado diseñado para centralizar y simplificar la gestión de tu red comercial. Te permite administrar comercios, procesar pagos, controlar ventas, supervisar operaciones y obtener reportes avanzados, todo desde un único punto de control.
+                {t.whatIs.p1}
               </Typography>
               <Typography 
                 variant="body1" 
@@ -62,7 +65,7 @@ export const WhatIsABPOS: React.FC = () => {
                   fontSize: { xs: '1.05rem', md: '1.15rem' }
                 }}
               >
-                Olvídate de la fragmentación operativa. Nuestra plataforma consolida cada interacción del negocio para brindarte visibilidad absoluta y optimizar la toma de decisiones críticas en tiempo real.
+                {t.whatIs.p2}
               </Typography>
             </motion.div>
           </Grid>
@@ -88,7 +91,7 @@ export const WhatIsABPOS: React.FC = () => {
                 <Box 
                   component="img" 
                   src="/dashboard.png" 
-                  alt="Ecosistema de Panel Centralizado AB POS" 
+                  alt="Centralized Dashboard Ecosystem" 
                   sx={{ 
                     width: '100%', 
                     height: 'auto', 

@@ -17,20 +17,22 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { COLORS } from '../../theme';
-
-const navItems = [
-  { title: 'Producto', hasDropdown: true },
-  { title: 'Pedidos sin Contacto', hasDropdown: true },
-  { title: 'Servicios para Comercios', hasDropdown: true },
-  { title: 'Socios', hasDropdown: true },
-];
+import { useLanguage } from '../../../shared/context/LanguageContext';
 
 export const Header: React.FC = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
+
+  const navItems = [
+    { title: t.header.product, hasDropdown: true },
+    { title: t.header.contactless, hasDropdown: true },
+    { title: t.header.merchant, hasDropdown: true },
+    { title: t.header.partner, hasDropdown: true },
+  ];
 
   const drawer = (
     <Box 
@@ -75,6 +77,50 @@ export const Header: React.FC = () => {
           </ListItem>
         ))}
       </List>
+
+      {/* Language Switcher inside Mobile Drawer */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 1 }}>
+        <Button 
+          variant={language === 'en' ? 'contained' : 'outlined'}
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            setLanguage('en');
+          }}
+          sx={{ 
+            minWidth: 45, 
+            borderColor: alpha(COLORS.light, 0.3),
+            color: COLORS.light,
+            bgcolor: language === 'en' ? COLORS.primary : 'transparent',
+            fontWeight: 'bold',
+            '&:hover': {
+              bgcolor: language === 'en' ? alpha(COLORS.primary, 0.9) : alpha(COLORS.light, 0.1),
+            }
+          }}
+        >
+          EN
+        </Button>
+        <Button 
+          variant={language === 'es' ? 'contained' : 'outlined'}
+          size="small"
+          onClick={(e) => {
+            e.stopPropagation();
+            setLanguage('es');
+          }}
+          sx={{ 
+            minWidth: 45, 
+            borderColor: alpha(COLORS.light, 0.3),
+            color: COLORS.light,
+            bgcolor: language === 'es' ? COLORS.primary : 'transparent',
+            fontWeight: 'bold',
+            '&:hover': {
+              bgcolor: language === 'es' ? alpha(COLORS.primary, 0.9) : alpha(COLORS.light, 0.1),
+            }
+          }}
+        >
+          ES
+        </Button>
+      </Box>
       
       <Box sx={{ width: '100%', pb: 4 }}>
         <Button 
@@ -92,7 +138,7 @@ export const Header: React.FC = () => {
             }
           }}
         >
-          Iniciar Sesión
+          {t.header.login}
         </Button>
       </Box>
     </Box>
@@ -150,8 +196,42 @@ export const Header: React.FC = () => {
             ))}
           </Box>
 
-          {/* Action Buttons & Hamburger */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          {/* Action Buttons, Language Switch & Hamburger */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
+            
+            {/* Desktop Language Switch */}
+            <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center' }}>
+              <Button 
+                size="small"
+                onClick={() => setLanguage('en')}
+                sx={{ 
+                  color: language === 'en' ? COLORS.primary : alpha(COLORS.light, 0.5), 
+                  fontWeight: language === 'en' ? 800 : 500,
+                  minWidth: 30,
+                  px: 0.5,
+                  fontSize: '0.85rem',
+                  '&:hover': { bgcolor: 'transparent', color: COLORS.primary }
+                }}
+              >
+                EN
+              </Button>
+              <Typography sx={{ color: alpha(COLORS.light, 0.25), mx: 0.2, fontSize: '0.8rem', userSelect: 'none' }}>|</Typography>
+              <Button 
+                size="small"
+                onClick={() => setLanguage('es')}
+                sx={{ 
+                  color: language === 'es' ? COLORS.primary : alpha(COLORS.light, 0.5), 
+                  fontWeight: language === 'es' ? 800 : 500,
+                  minWidth: 30,
+                  px: 0.5,
+                  fontSize: '0.85rem',
+                  '&:hover': { bgcolor: 'transparent', color: COLORS.primary }
+                }}
+              >
+                ES
+              </Button>
+            </Box>
+
             <Button 
               variant="contained" 
               href="#"
@@ -169,7 +249,7 @@ export const Header: React.FC = () => {
                 }
               }}
             >
-              Iniciar Sesión
+              {t.header.login}
             </Button>
             
             <IconButton

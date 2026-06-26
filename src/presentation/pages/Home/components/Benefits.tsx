@@ -2,19 +2,12 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-const benefits = [
-  'Mayor control operativo integral de la red',
-  'Visibilidad completa de transacciones y datos en tiempo real',
-  'Seguimiento y acompañamiento comercial optimizado',
-  'Reducción drástica de procesos manuales e ineficiencias',
-  'Mayor capacidad de escalabilidad tecnológica y del negocio',
-  'Toma de decisiones informadas basada en analíticas reales',
-  'Flexibilidad de precios con programas Tarifa Plana e Interchange Plus'
-];
-
 export const Benefits: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#F0F4FF', position: 'relative' }}>
       <Container maxWidth="lg">
@@ -36,7 +29,7 @@ export const Benefits: React.FC = () => {
                 fontSize: '0.9rem'
               }}
             >
-              Ventaja Competitiva
+              {t.benefits.badge}
             </Typography>
             <Typography 
               variant="h2" 
@@ -47,13 +40,13 @@ export const Benefits: React.FC = () => {
                 lineHeight: 1.2
               }}
             >
-              Beneficios Clave
+              {t.benefits.title}
             </Typography>
           </motion.div>
         </Box>
 
         <Grid container spacing={3.5} sx={{ justifyContent: "center" }}>
-          {benefits.map((benefit, index) => (
+          {t.benefits.items.map((benefit: string, index: number) => (
             <Grid size={{ xs: 12, sm: 6, md: 4 }} key={index}>
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }} 

@@ -2,9 +2,12 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
 export const FlexibleProcessing: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, background: COLORS.gradient, overflow: 'hidden', position: 'relative' }}>
       {/* Decorative Glows */}
@@ -42,7 +45,7 @@ export const FlexibleProcessing: React.FC = () => {
                   fontSize: '0.9rem'
                 }}
               >
-                Esquemas Comerciales
+                {t.flexible.badge}
               </Typography>
               <Typography 
                 variant="h2" 
@@ -54,7 +57,7 @@ export const FlexibleProcessing: React.FC = () => {
                   lineHeight: 1.2
                 }}
               >
-                Programas de Procesamiento Flexibles
+                {t.flexible.title}
               </Typography>
               <Typography 
                 variant="body1" 
@@ -65,7 +68,7 @@ export const FlexibleProcessing: React.FC = () => {
                   lineHeight: 1.7 
                 }}
               >
-                AB POS es compatible con múltiples programas de procesamiento, destacando **Tarifa Plana (Flat Rate)** e **Interchange Plus**. Cada distribuidor puede estructurar el modelo que mejor responda a las necesidades de sus comercios, sus márgenes operativos y su ritmo de crecimiento.
+                {t.flexible.p1}
               </Typography>
               <Typography 
                 variant="body1" 
@@ -76,7 +79,7 @@ export const FlexibleProcessing: React.FC = () => {
                   lineHeight: 1.7 
                 }}
               >
-                Entendemos que cada portafolio es único. Por ello, en lugar de imponer un único sistema de cobro rígido, AB POS proporciona a los socios comerciales absoluta libertad para seleccionar el esquema de precios que mejor se ajuste a su modelo de negocio.
+                {t.flexible.p2}
               </Typography>
               
               <Box 
@@ -89,7 +92,7 @@ export const FlexibleProcessing: React.FC = () => {
                 }}
               >
                 <Typography variant="h6" sx={{ color: COLORS.accent, fontStyle: 'italic', fontWeight: 500, fontSize: '1.05rem' }}>
-                  "Tu alianza. Tu estrategia de precios. Una sola plataforma conectada."
+                  {t.flexible.quote}
                 </Typography>
               </Box>
             </motion.div>
@@ -115,7 +118,7 @@ export const FlexibleProcessing: React.FC = () => {
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', mb: 4, gap: 2 }}>
                   <AccountTreeIcon sx={{ color: COLORS.accent, fontSize: 32 }} />
-                  <Typography variant="h5" sx={{ color: COLORS.light, fontWeight: 700 }}>Modelos de Tarifas</Typography>
+                  <Typography variant="h5" sx={{ color: COLORS.light, fontWeight: 700 }}>{t.flexible.cardTitle}</Typography>
                 </Box>
                 
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3.5 }}>
@@ -135,10 +138,10 @@ export const FlexibleProcessing: React.FC = () => {
                     }}
                   >
                     <Typography variant="h6" sx={{ color: COLORS.light, mb: 1, fontWeight: 700 }}>
-                      Tarifa Plana (Flat Rate)
+                      {t.flexible.flatTitle}
                     </Typography>
                     <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.65), lineHeight: 1.6 }}>
-                      Precios sencillos y predecibles por transacción. Es ideal para comercios pequeños o medianos que valoran la consistencia y reportes de facturación rápidos y fáciles de comprender.
+                      {t.flexible.flatDesc}
                     </Typography>
                   </Box>
                   
@@ -157,10 +160,10 @@ export const FlexibleProcessing: React.FC = () => {
                     }}
                   >
                     <Typography variant="h6" sx={{ color: COLORS.light, mb: 1, fontWeight: 700 }}>
-                      Interchange Plus
+                      {t.flexible.interchangeTitle}
                     </Typography>
                     <Typography variant="body2" sx={{ color: alpha(COLORS.light, 0.65), lineHeight: 1.6 }}>
-                      Precios basados en el costo directo de las marcas de tarjetas más un margen establecido. Excelente para comercios de alto volumen que buscan transparencia absoluta y optimización de costos.
+                      {t.flexible.interchangeDesc}
                     </Typography>
                   </Box>
 

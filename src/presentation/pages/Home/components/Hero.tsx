@@ -2,8 +2,11 @@ import React from 'react';
 import { Box, Button, Container, Typography, alpha } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 
 export const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box 
       sx={{ 
@@ -64,7 +67,7 @@ export const Hero: React.FC = () => {
               textShadow: `0 4px 30px ${alpha(COLORS.dark, 0.6)}`
             }}
           >
-            Tecnología para distribuidores de soluciones financieras
+            {t.hero.title}
           </Typography>
         </motion.div>
         
@@ -86,7 +89,7 @@ export const Hero: React.FC = () => {
               textShadow: `0 2px 10px ${alpha(COLORS.dark, 0.4)}`
             }}
           >
-            Un solo ecosistema. Control total.
+            {t.hero.subtitle}
           </Typography>
         </motion.div>
 
@@ -122,7 +125,7 @@ export const Hero: React.FC = () => {
                 }
               }}
             >
-              Solicitar una Demo
+              {t.hero.demo}
             </Button>
             <Button 
               variant="outlined" 
@@ -142,7 +145,7 @@ export const Hero: React.FC = () => {
                 }
               }}
             >
-              Explorar Plataforma
+              {t.hero.explore}
             </Button>
           </Box>
         </motion.div>

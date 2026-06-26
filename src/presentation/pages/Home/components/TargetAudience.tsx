@@ -2,32 +2,13 @@ import React from 'react';
 import { Box, Container, Typography, alpha, Grid, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { COLORS } from '../../../theme';
+import { useLanguage } from '../../../../shared/context/LanguageContext';
 import PeopleIcon from '@mui/icons-material/People';
 import BusinessIcon from '@mui/icons-material/Business';
 
-const audience = [
-  'Distribuidores de soluciones financieras', 
-  'Organizaciones de Ventas Independientes (ISOs)', 
-  'Socios comerciales B2B', 
-  'Agentes y promotores', 
-  'Equipos de operaciones', 
-  'Redes y cadenas de comercios'
-];
-
-const industries = [
-  'Restaurantes y gastronomía', 
-  'Comercio minorista (Retail)', 
-  'Tiendas de conveniencia', 
-  'Supermercados y abarrotes', 
-  'Servicios profesionales', 
-  'Estética y bienestar', 
-  'Hotelería y turismo', 
-  'Negocios móviles y eventos', 
-  'Cadenas y franquicias', 
-  'Pymes en crecimiento'
-];
-
 export const TargetAudience: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: '#FFFFFF', position: 'relative' }}>
       <Container maxWidth="lg">
@@ -45,15 +26,15 @@ export const TargetAudience: React.FC = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 2 }}>
                 <PeopleIcon sx={{ color: COLORS.primary, fontSize: 40 }} />
                 <Typography variant="h3" sx={{ color: COLORS.dark, fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.2rem' } }}>
-                  ¿Para quién es?
+                  {t.audience.title1}
                 </Typography>
               </Box>
               <Typography variant="body1" sx={{ color: alpha(COLORS.dark, 0.7), mb: 4, fontSize: '1.05rem', lineHeight: 1.6 }}>
-                AB POS está diseñado para equipos dinámicos y en crecimiento que buscan centralizar y escalar la administración de sus operaciones financieras:
+                {t.audience.desc1}
               </Typography>
               
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mt: 'auto' }}>
-                {audience.map((item) => (
+                {t.audience.items.map((item: string) => (
                   <motion.div key={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Chip 
                       label={item} 
@@ -98,15 +79,15 @@ export const TargetAudience: React.FC = () => {
               <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 2 }}>
                 <BusinessIcon sx={{ color: COLORS.secondary, fontSize: 40 }} />
                 <Typography variant="h3" sx={{ color: COLORS.dark, fontWeight: 800, fontSize: { xs: '1.8rem', md: '2.2rem' } }}>
-                  Sectores que Apoyamos
+                  {t.audience.title2}
                 </Typography>
               </Box>
               <Typography variant="body1" sx={{ color: alpha(COLORS.dark, 0.7), mb: 4, fontSize: '1.05rem', lineHeight: 1.6 }}>
-                Ofrecemos una infraestructura tecnológica robusta para distribuidores y redes comerciales que brindan servicios a diversos sectores de mercado:
+                {t.audience.desc2}
               </Typography>
               
               <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5, mt: 'auto' }}>
-                {industries.map((item) => (
+                {t.audience.industries.map((item: string) => (
                   <motion.div key={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                     <Chip 
                       label={item} 
