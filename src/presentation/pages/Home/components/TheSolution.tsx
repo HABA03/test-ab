@@ -108,7 +108,7 @@ export const TheSolution: React.FC = () => {
                   sx={{ 
                     flex: 1, 
                     minHeight: { xs: 200, sm: 'auto' }, 
-                    backgroundImage: 'url(/contactless_payment.png)', 
+                    backgroundImage: 'url(/contactless_payment.webp)', 
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center' 
                   }} 
@@ -208,7 +208,7 @@ export const TheSolution: React.FC = () => {
                   sx={{ 
                     flex: 1, 
                     minHeight: { xs: 200, sm: 'auto' }, 
-                    backgroundImage: 'url(/restaurant_pos.png)', 
+                    backgroundImage: 'url(/restaurant_pos.webp)', 
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center' 
                   }} 

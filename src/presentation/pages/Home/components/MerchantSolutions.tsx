@@ -104,7 +104,7 @@ export const MerchantSolutions: React.FC = () => {
                 <Box 
                   sx={{ 
                     height: { xs: 240, sm: 300, lg: '350px' }, 
-                    backgroundImage: 'url(/restaurant_pos.png)', 
+                    backgroundImage: 'url(/restaurant_pos.webp)', 
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center' 
                   }} 

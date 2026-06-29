@@ -90,7 +90,7 @@ export const WhatIsABPOS: React.FC = () => {
               >
                 <Box 
                   component="img" 
-                  src="/dashboard.png" 
+                  src="/dashboard.webp" 
                   alt="Centralized Dashboard Ecosystem" 
                   sx={{ 
                     width: '100%', 
