@@ -194,19 +194,12 @@ export const Header: React.FC = () => {
           
           {/* Logo Area */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Typography 
-              variant="h5" 
-              component="div" 
-              sx={{ 
-                fontWeight: 'bold', 
-                color: COLORS.light, 
-                letterSpacing: '-0.05em', 
-                fontStyle: 'italic',
-                cursor: 'pointer'
-              }}
-            >
-              AB POS
-            </Typography>
+            <Box
+              component="img"
+              src="/favicon.svg"
+              alt="AB POS logo"
+              sx={{ width: 60, height: 60, cursor: 'pointer' }}
+            />
           </Box>
 
           {/* Desktop Navigation */}
